@@ -1,0 +1,185 @@
+
+.rcs-analog-clock-container{
+    position: relative;
+    padding: 10px;
+    width: 250px;    
+    height: 250px;
+    border-radius: 100%;    
+}
+
+.rcs-analog-clock-base{ 
+    position: absolute;  
+    top: 50%;  
+    left: 50%;    
+    stroke: black; 
+    transform: translate(-50%, -50%);
+}
+
+.rcs-analog-clock-center-pin{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    z-index: 300;
+    border-radius: 100%;
+    background-color: white;
+    border: 2px solid #e62e2d;
+    transform: translate(-50%, -50%);
+}
+
+.rcs-analog-clock-hour-hand-container{
+    position: absolute;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    justify-content: center;
+    transform: translate(-50%, -50%) rotate(0deg);
+    
+}
+
+.rcs-analog-clock-minute-hand-container{
+    position: absolute;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    justify-content: center;
+    transform: translate(-50%, -50%) rotate(270deg);
+} 
+
+.rcs-analog-clock-seconds-hand-container{
+    position: absolute;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    justify-content: center;
+    transform: translate(-50%, -50%) rotate(270deg);
+}
+
+.rcs-analog-hour-hand{
+    position: absolute;
+    stroke: black;
+    transform: translate(-46%, -50%);
+}
+
+.rcs-analog-minute-hand{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 110px;
+    stroke: black;
+    transform: translate(20%, -49.1%) rotate(90deg);
+}
+
+.rcs-analog-seconds-hand{
+    position: absolute;
+    width: 80px;
+    height: 110px;
+    fill: #e62e2d;
+    stroke: #e62e2d;
+    transform: translate(-51%, -50%) rotate(90deg);
+}
+
+.rcs-analog-time-picker-form-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.rcs-analog-time-picker-btn{
+    width: 95%;
+    padding: 5px;
+    margin: 5px 0px;
+    border-radius: 10px;
+    outline: none;
+    color: white;
+    background:  #9b4dca;
+    border: 2px solid white;
+}
+
+.rcs-analog-time-input-field-parent{
+    display: flex;
+    width: 100%;
+    justify-content: center;  
+}
+
+.rcs-analog-time-input-field{        
+    width: 25%;
+    padding: 0;
+}
+
+.rcs-analog-am-pm-toggle{
+    cursor: pointer;
+    padding: 2px;
+    font: 400 13.3333px Arial;
+    border: 1px solid rgb(118, 118, 118);
+    background-color: rgb(255, 255, 255);
+}
+
+.rcs-analog-am-pm-toggle:hover{
+    color: blue;
+}
+
+.rcs-analog-picker {
+    position: absolute;
+    padding: 8px;
+    z-index: 200;    
+    border-radius: 5px;
+    background: rgb(248, 248, 248);    
+    box-shadow: 0px 11px 12px -6px #bfbfbf;
+}
+
+.rcs-analog-picker-field-parent{
+    position:relative;
+}
+
+.rcs-show-picker-top {
+    bottom: 100%;
+}
+
+.rcs-show-picker-bottom {
+    top: 100%;
+}
+
+.rcs-show-picker-modal {
+    position: fixed;
+    z-index:150;    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 7px 4px #d2cece;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+  /* 
+
+  .rcs-analog-clock-base-custom
+  .rcs-analog-time-picker-container-custom
+  .rcs-analog-time-input-field-parent-custom
+  .rcs-analog-time-input-field-custom
+  .rcs-analog-am-pm-toggle-custom
+  .rcs-analog-picker-input-custom
+  .rcs-analog-time-picker-button-custom
+  .rcs-analog-picker-custom
+  
+  */
+  

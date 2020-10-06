@@ -1,0 +1,4 @@
+@font-face {
+  font-family: digital;
+  src: url('./new-digital.woff') format('woff'), url('./new-digital.ttf') format('truetype') ;
+}
