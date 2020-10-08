@@ -32,7 +32,8 @@ export default class DigitalTime extends Component {
             editMinutes: false,
             editSeconds: false,
             selectorPosition: "rcs-show-picker-bottom",
-            color: "rgba(24, 24, 24, 0.671)", 
+            color: "rgba(24, 24, 24, 0.671)",
+            useValue: false 
         }
     }
 
@@ -52,6 +53,7 @@ export default class DigitalTime extends Component {
         let selectorPosition = this.props.selectorPosition === undefined || this.props.selectorPosition.trim()==='' ? "rcs-show-picker-bottom" : "rcs-show-picker-" + this.props.selectorPosition.toLocaleLowerCase()
         let type = this.props.type === undefined ? "picker" : this.props.type.toLocaleLowerCase()
         let color = this.props.color === undefined ? "rgba(24, 24, 24, 0.671)" : this.props.color;
+        let useValue = (this.props.value !== "" && this.props.value !== undefined)  
         onConfirm = this.props.onConfirm === undefined ? onConfirm : this.props.onConfirm;
         let size = this.props.size === undefined || new RegExp("[^0-9.]").test(this.props.size)? 
             1 
@@ -75,6 +77,8 @@ export default class DigitalTime extends Component {
             type: type,
             color: color,
             size: size,
+            placeholder: this.props.placeholder,
+            useValue: useValue
         })
     }
     
@@ -252,6 +256,7 @@ export default class DigitalTime extends Component {
           am_pm: this.state.am_pm,
         });
         this._closeDigitalPicker();
+        this.setState({ useValue: true });    
     }
 
     /*Hide picker on time input field when ok clicked*/
@@ -372,10 +377,12 @@ export default class DigitalTime extends Component {
         if(this.state.hoursFormat === 12){
             time += " " + this.state.am_pm ;
         }
+        time = this.state.useValue ? time : "";
         return(
             <div className="rcs-digital-picker-container">
                 <input 
                     type="text"
+                    placeholder={this.state.placeholder}
                     value={time}
                     className="rcs-digital-picker-input rcs-digital-picker-input-custom"                     
                     onChange={(e) => { e.preventDefault(); return; }}                    
