@@ -102,6 +102,8 @@ export default function Test() {
                         selectorPosition={selectorPosition}
                         hoursFormat={format}
                         value={timeValue}
+                        // value={""}
+                        // placeholder="hello"
                         size={size}
                         // color={"crimson"}
                         onConfirm={(e,value)=>{onConfirm(e,value,1)}}
@@ -111,8 +113,10 @@ export default function Test() {
                         type={displayType}
                         selectorPosition={selectorPosition}
                         hoursFormat={format}
-                        value={timeValue}
+                        // value={timeValue}
+                        // value={""}
                         size={size}
+                        // placeholder="hello"
                         // baseColor={"rgb(255,255,255)"}
                         // hourHandColor={"white"}
                         // minuteHandColor={"#FFFFFF"}

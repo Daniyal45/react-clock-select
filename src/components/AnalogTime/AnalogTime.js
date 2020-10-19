@@ -36,6 +36,7 @@ export default class AnalogTime extends Component {
              hourHandColor: "black",
              minuteHandColor: "black",
              secondHandColor: "#e62e2d",
+             useValue: false
         }
     }
     
@@ -67,6 +68,7 @@ export default class AnalogTime extends Component {
         let hourHandColor = this.props.hourHandColor === undefined ? "black" : this.props.hourHandColor;
         let minuteHandColor = this.props.minuteHandColor === undefined ? "black" : this.props.minuteHandColor;
         let secondHandColor = this.props.secondHandColor === undefined ? "#e62e2d" : this.props.secondHandColor;
+        let useValue = (this.props.value !== "" && this.props.value !== undefined)  
         onConfirm = this.props.onConfirm === undefined ? onConfirm : this.props.onConfirm;
 
         this.setState({
@@ -81,7 +83,9 @@ export default class AnalogTime extends Component {
             baseColor: baseColor,
             hourHandColor: hourHandColor,
             minuteHandColor: minuteHandColor,
-            secondHandColor: secondHandColor
+            secondHandColor: secondHandColor,
+            placeholder: this.props.placeholder,
+            useValue: useValue
         },()=>{
             this.manualUpdater();
         })
@@ -274,6 +278,7 @@ export default class AnalogTime extends Component {
           am_pm: this.state.am_pm,
         });
         this._closeAnalogPicker();
+        this.setState({ useValue: true });    
     }
 
     /*Hide picker on time input field when ok clicked*/
@@ -442,11 +447,12 @@ export default class AnalogTime extends Component {
         if(this.state.hoursFormat === 12){
             time += " " + this.state.am_pm ;
         }
+        time = this.state.useValue ? time : "";
         return(
             <div className="rcs-analog-picker-field-parent">
                 <input
                     type="text"  
-                    placeholder="Time"
+                    placeholder={this.state.placeholder}
                     value={time}                 
                     className="rcs-analog-picker-input-custom" 
                     onChange={(e) => { e.preventDefault(); return; }}                    
