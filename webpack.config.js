@@ -5,7 +5,7 @@ module.exports = {
   entry: "./src/webpack-index.js",
   mode: "production",
   output: {
-    filename: "clock-select.js",
+    filename: "clock_select.js",
     path: path.resolve(__dirname, "dist"),
     libraryTarget: "commonjs2",
   },
