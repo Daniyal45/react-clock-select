@@ -1,2 +1,4 @@
-import { AnalogTime, DigitalTime } from "./components/ClockSelect/ClockSelect";
-export default { AnalogTime, DigitalTime };
+import DigitalTime from './components/DigitalTime/DigitalTime';
+import AnalogTime from './components/AnalogTime/AnalogTime';
+
+export {DigitalTime, AnalogTime};
