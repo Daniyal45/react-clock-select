@@ -1,15 +1,22 @@
 {
     "name": "react-clock-select",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "license": "MIT",
     "repository": {
         "type": "git",
         "url": "https://github.com/Daniyal45/react-clock-select"
-      },
+    },
     "author": "Daniyal Hasan Shah, Adnan Ali",
     "description": "A simple react component to select time in 12 hour or 24 hours format.",
-    "keywords": ["time", "time-select", "clock", "clock-select", "time-picker", "react"],
-    "main": "./dist/time_select.js",
+    "keywords": [
+        "time",
+        "time-select",
+        "clock",
+        "clock-select",
+        "time-picker",
+        "react"
+    ],
+    "main": "./dist/clock_select.js",
     "dependencies": {
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
@@ -43,6 +50,7 @@
         "css-loader": "^4.1.1",
         "style-loader": "^1.2.1",
         "terser-webpack-plugin": "^3.1.0",
+        "url-loader": "^4.1.0",
         "webpack": "^4.42.0",
         "webpack-cli": "^3.3.12"
     }
