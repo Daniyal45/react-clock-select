@@ -68,6 +68,8 @@ A simple react component to select time in 12 hour or 24 hours format
            value={new Date()}
            // Date() object or 
            // a valid time string for Date() constructor
+           placeholder="Select Time.."
+           // when 'value' is empty string
            hoursFormat={12}
            // 12 or 24 
            size={1}
@@ -112,6 +114,8 @@ A simple react component to select time in 12 hour or 24 hours format
            value={new Date()}
            // Date() object or 
            // a valid time string for Date() constructor
+           placeholder="Select Time.."
+           // when 'value' is empty string
            hoursFormat={12}
            // 12 or 24 
            size={1}
@@ -142,6 +146,7 @@ Prop | Type | Description
 ---- | ---- | ----
 type| String | "picker" for time picker display or "display" for non editable display|
 value| String/Date() | Sets default time value |
+placeholder| String | Set placeholder, visible when 'value' is empty string |
 hoursFormat| Number | Hour format can be either 12 or 24 |
 size| Number | Size of the clock, should be greater than 0, Default is 1 |
 selectorPosition| String | Position of the picker, "top", "bottom" or "modal" (Picker only). Default is bottom. |
@@ -156,6 +161,7 @@ Prop | Type | Description
 ---- | ---- | ----
 type| String | "picker" for time picker display or "display" for non editable display|
 value| String/Date() | Sets default time value |
+placeholder| String | Set placeholder, visible when 'value' is empty string |
 hoursFormat| Number | Hour format can be either 12 or 24 |
 size| Number | Size of the digital font, should be greater than 0, Default is 1 |
 selectorPosition| String | Position of the picker, "top", "bottom" or "modal" (Picker only). Default is bottom. |
