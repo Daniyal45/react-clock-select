@@ -68,7 +68,7 @@ A simple react component to select time in 12 hour or 24 hours format
            value={new Date()}
            // Date() object or 
            // a valid time string for Date() constructor
-           placeholder="Select Time.."
+           placeholder={"Select Time.."}
            // when 'value' is empty string
            hoursFormat={12}
            // 12 or 24 
@@ -114,7 +114,7 @@ A simple react component to select time in 12 hour or 24 hours format
            value={new Date()}
            // Date() object or 
            // a valid time string for Date() constructor
-           placeholder="Select Time.."
+           placeholder={"Select Time.."}
            // when 'value' is empty string
            hoursFormat={12}
            // 12 or 24 
