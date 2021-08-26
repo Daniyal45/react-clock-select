@@ -14,6 +14,11 @@
 # production
 /dist
 
+# dev
+/public/clock_select.js
+/public/clock_select.js.map
+/public/*.txt
+
 # misc
 .DS_Store
 .env.local

@@ -1,7 +1,7 @@
 import React , { useState, useEffect } from 'react'
 import './test.css'
-import { AnalogTime, DigitalTime } from '../components/ClockSelect/ClockSelect';
-// import { AnalogTime, DigitalTime } from '../dist/clock_select';
+// import { AnalogTime, DigitalTime } from '../components/ClockSelect/ClockSelect';
+import { AnalogTime, DigitalTime } from './../../dist/clock_select.esm';
 
 var time_interval;
 
@@ -114,7 +114,7 @@ export default function Test() {
                         type={displayType}
                         selectorPosition={selectorPosition}
                         hoursFormat={format}
-                        // value={timeValue}
+                        value={timeValue}
                         // value={""}
                         size={size}
                         // placeholder="hello"

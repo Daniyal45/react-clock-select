@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Test from './tests/test';
 
-export default class Main extends React.Component {
+class Main extends React.Component {
 
   constructor(props) {
     super(props)
