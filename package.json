@@ -7,7 +7,7 @@
         "url": "https://github.com/Daniyal45/react-clock-select"
     },
     "author": "Daniyal Hasan Shah, Adnan Ali",
-    "description": "A simple react component to select time in 12 hour or 24 hours format.",
+    "description": "A simple react component to select or display time in 12 hour or 24 hours format.",
     "keywords": [
         "time",
         "time-select",
