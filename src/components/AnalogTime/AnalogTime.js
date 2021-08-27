@@ -8,14 +8,14 @@
     17/09/2020   
  *******/
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './AnalogTime.css';
 
 // Callback declaration for `onConfirm` prop
 let onConfirm = () => { return; }
 
 
-export default class AnalogTime extends Component {
+export default class AnalogTime extends PureComponent {
     constructor(props) {
         super(props);
         let date = new Date();
@@ -36,8 +36,10 @@ export default class AnalogTime extends Component {
              hourHandColor: "black",
              minuteHandColor: "black",
              secondHandColor: "#e62e2d",
-             useValue: false
+             useValue: false,
+             liveUpdater: false
         }
+        this.time_interval;
     }
     
     componentDidMount = () => {        
@@ -46,15 +48,73 @@ export default class AnalogTime extends Component {
 
 	componentDidUpdate = (prevProps) => {
 		if (prevProps !== this.props) {
-			this.getProps();
+            this.getProps();
 		}
 	}
+
+    componentWillUnmount() {
+        clearInterval(this.time_interval);
+    }
+
+    liveUpdater = () => {
+        let { hoursFormat } = this.state;
+        clearInterval(this.time_interval);
+        if(this.state.liveUpdater && this.state.type === "display") {               
+            this.time_interval = setInterval(() => {
+                if(this.props.value === undefined){
+                    let value = this.getValue(
+                        new Date(),
+                        hoursFormat
+                    );
+                    this.setState({
+                        hours: value.hours,
+                        minutes: value.minutes,
+                        seconds: value.seconds,
+                        am_pm: value.am_pm,
+                        hoursFormat: hoursFormat,
+                    },()=>{
+                        this.manualUpdater();
+                    });
+                } else {
+                    let {
+                        hours,
+                        minutes,
+                        seconds,
+                        am_pm,
+                    } = this.state;
+
+                    let currentTime = hours + ":" + minutes + ":" + seconds + " " + (am_pm? am_pm : "");
+                    let newTime = new Date(new Date().toDateString() + " " + currentTime)
+                    newTime.setSeconds(newTime.getSeconds() + 1);
+                    newTime = new Date(newTime);
+                    let value = this.getValue(
+                        newTime,
+                        hoursFormat
+                    );
+                    this.setState({
+                        hours: value.hours,
+                        minutes: value.minutes,
+                        seconds: value.seconds,
+                        am_pm: value.am_pm,
+                        hoursFormat: hoursFormat,
+                    },()=>{
+                        this.manualUpdater();
+                    });
+                } 
+                
+
+            }, 1000);    
+        }
+        else{
+            clearInterval(this.time_interval);
+        }    
+    }
 
     /*Get props & set into component's state*/
 	getProps = () => {
         let hoursFormat = Number(this.props.hoursFormat) === 12 || this.props.hoursFormat === undefined ? 12 : 24;
         let selectorPosition = this.props.selectorPosition === undefined || this.props.selectorPosition.trim()==='' ? "rcs-show-picker-bottom" : "rcs-show-picker-" + this.props.selectorPosition.toLocaleLowerCase()
-        let type = this.props.type === undefined ? "picker" : this.props.type.toLocaleLowerCase()
+        let type = this.props.type === undefined ? "picker" : this.props.type.toLocaleLowerCase();
         let size = this.props.size === undefined || new RegExp("[^0-9.]").test(this.props.size)? 
                 1 
             : 
@@ -69,6 +129,7 @@ export default class AnalogTime extends Component {
         let minuteHandColor = this.props.minuteHandColor === undefined ? "black" : this.props.minuteHandColor;
         let secondHandColor = this.props.secondHandColor === undefined ? "#e62e2d" : this.props.secondHandColor;
         let useValue = (this.props.value !== "" && this.props.value !== undefined)  
+        let liveUpdater = this.props.liveUpdater === undefined? this.state.liveUpdater : this.props.liveUpdater;
         onConfirm = this.props.onConfirm === undefined ? onConfirm : this.props.onConfirm;
 
         this.setState({
@@ -85,9 +146,11 @@ export default class AnalogTime extends Component {
             minuteHandColor: minuteHandColor,
             secondHandColor: secondHandColor,
             placeholder: this.props.placeholder,
-            useValue: useValue
+            useValue: useValue,
+            liveUpdater: liveUpdater
         },()=>{
             this.manualUpdater();
+            this.liveUpdater();
         })
     }
     

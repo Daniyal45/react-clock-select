@@ -1,47 +1,29 @@
 import React , { useState, useEffect } from 'react'
 import './test.css'
-// import { AnalogTime, DigitalTime } from '../components/ClockSelect/ClockSelect';
-import { AnalogTime, DigitalTime } from './../../dist/clock_select.esm';
+import { AnalogTime, DigitalTime } from '../components/ClockSelect/ClockSelect';
+// import { AnalogTime, DigitalTime } from './../../dist/clock_select.esm';
 
 var time_interval;
 
 export default function Test() {
-    const [ displayType, _displayType ] = useState("picker");
+    const [ displayType, _displayType ] = useState("display");
     const [ selectorPosition, _selectorPosition ] = useState("bottom");
     const [format, _format] = useState(12);
     const [size, _size] = useState(1);
     const [clockType, _clockType] = useState("digital");
     const [timeValue, _timeValue] = useState("17:00:48"); 
-    const [timer, _timer] = useState(false); 
-    const liveUpdater = () => {          
-        if(timer) {               
-            time_interval = setInterval(() => {
-                let date = new Date();
-                _timeValue(date);
-            }, 1000);    
-        }
-        else{
-            clearInterval(time_interval);
-        }    
-    }
+    // const [timeValue, _timeValue] = useState("11:59:48"); 
+    const [live, _live] = useState(false); 
  
     const onConfirm = (e,value,id) => {
         console.log("e",e)
         console.log("value",value)
         console.log("id",id)
     }
-
-    useEffect(liveUpdater,[timer,format]);
-
     
     return (    
         <div>
             <div className="test-action-buttons-style">
-            <button
-                    onClick={() => { _timer(!timer) }}
-                >
-                    Toggle Timer
-                </button>
                 <button
                     onClick={() => {
                         displayType === "picker" ?
@@ -77,6 +59,13 @@ export default function Test() {
                 >
                     Change Time
                 </button>
+                <button
+                    onClick={() => {
+                        _live(!live)
+                    }}
+                >
+                    Toggle Live Updater
+                </button>
             </div>  
             <div className="test-action-buttons-style">
                 <select onChange={(e) => { _selectorPosition(e.target.value) }}>
@@ -100,6 +89,38 @@ export default function Test() {
                 {clockType === "digital" ?
                     <DigitalTime 
                         type={displayType}
+                        // selectorPosition={selectorPosition}
+                        hoursFormat={format}
+                        // // value={timeValue}
+                        // // value={""}
+                        // // placeholder="hello"
+                        size={size}
+                        // // color={"crimson"}
+                        liveUpdater={live}
+                        onConfirm={(e,value)=>{onConfirm(e,value,1)}}
+                    />
+                    :
+                    <AnalogTime 
+                        type={displayType}
+                        selectorPosition={selectorPosition}
+                        hoursFormat={format}
+                        // value={timeValue}
+                        // value={""}
+                        size={size}
+                        // placeholder="hello"
+                        // baseColor={"rgb(255,255,255)"}
+                        // hourHandColor={"white"}
+                        // minuteHandColor={"#FFFFFF"}
+                        // secondHandColor={"#4d944e"}
+                        liveUpdater={live}
+                        onConfirm={(e,value)=>{ onConfirm(e,value,1)}}
+                    />
+                }
+            </div>  
+            <div className="test-root">
+                {clockType === "digital" ?
+                    <DigitalTime 
+                        type={displayType}
                         selectorPosition={selectorPosition}
                         hoursFormat={format}
                         value={timeValue}
@@ -107,6 +128,7 @@ export default function Test() {
                         // placeholder="hello"
                         size={size}
                         // color={"crimson"}
+                        liveUpdater={live}
                         onConfirm={(e,value)=>{onConfirm(e,value,1)}}
                     />
                     :
@@ -122,6 +144,7 @@ export default function Test() {
                         // hourHandColor={"white"}
                         // minuteHandColor={"#FFFFFF"}
                         // secondHandColor={"#4d944e"}
+                        liveUpdater={live}
                         onConfirm={(e,value)=>{onConfirm(e,value,1)}}
                     />
                 }
