@@ -420,6 +420,7 @@ export default class DigitalTime extends PureComponent {
                         <button 
                             onClick={(e)=>{this._confirmTimeChange(e);}}
                             className="rcs-digital-time-picker-btn rcs-digital-time-picker-btn-custom"
+                            style={{fontSize: 13 * this.state.size}}
                         > 
                             Ok
                         </button>
