@@ -51,7 +51,9 @@ A simple react component to select time in 12 hour or 24 hours format
 - **Time Display:**
     For showing only Analog/Digital time display.
 - **Time Format:**
-  Returns time in 12hours or 24hours format.
+    Returns time in 12hours or 24hours format.
+- **Live Clock:**
+    Real Time Clock with optional initial value.
 - **Fully Customizable:**
     Seperate props for changing color & size of time component. For advanced customization, CSS classes can be overridden.
 
@@ -75,8 +77,11 @@ A simple react component to select time in 12 hour or 24 hours format
            size={1}
            // greater than 0, Default is 1.
            selectorPosition={"top"}
-           // "top", "bottom" or "modal" (Picker only).
+           // "top", "bottom" or "modal" (Picker only). 
            // Default is bottom.
+           liveUpdater={true}
+           // true or false (Display only).
+           // Default is false.
            baseColor={"rgb(255,255,255)"}
            // Color value for clock base
            hourHandColor={"white"}
@@ -123,6 +128,9 @@ A simple react component to select time in 12 hour or 24 hours format
            selectorPosition={"top"}
            // "top", "bottom" or "modal" (Picker only).
            // Default is bottom.
+           liveUpdater={true}
+           // true or false (Display only).
+           // Default is false.
            color={"rgba(24, 24, 24, 0.671)"}
            // Color value for clock digits
            onConfirm={(e,value)=>{
@@ -150,6 +158,7 @@ placeholder| String | Set placeholder, visible when 'value' is empty string |
 hoursFormat| Number | Hour format can be either 12 or 24 |
 size| Number | Size of the clock, should be greater than 0, Default is 1 |
 selectorPosition| String | Position of the picker, "top", "bottom" or "modal" (Picker only). Default is bottom. |
+liveUpdater| Boolean | Live Clock, if "value" prop is provided live time will be initiated from the "value". |
 baseColor| String | Color value for clock base |
 hourHandColor| String | Color value for hour hand |
 minuteHandColor| String | Color value for minute hand |
@@ -165,6 +174,7 @@ placeholder| String | Set placeholder, visible when 'value' is empty string |
 hoursFormat| Number | Hour format can be either 12 or 24 |
 size| Number | Size of the digital font, should be greater than 0, Default is 1 |
 selectorPosition| String | Position of the picker, "top", "bottom" or "modal" (Picker only). Default is bottom. |
+liveUpdater| Boolean | Live Clock, if "value" prop is provided live time will be initiated from the "value". |
 color| String | Color value for clock digits |
 onConfirm| Callback | Callback function for date confirm on OK button . value is a JSON  <pre>{ <br/> time_string: "12:00:00 AM", <br/> hours: "12", <br/> minutes: "00", <br/> seconds: "00", <br/> am_pm: "AM" <br/>} </pre> |
 

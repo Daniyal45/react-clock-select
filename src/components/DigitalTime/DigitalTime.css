@@ -7,6 +7,7 @@
 
 .rcs-digital-picker-input-container {
   display: flex;
+  font-family: "digital";
 }
 
 .rcs-digital-picker-input {
@@ -52,7 +53,6 @@
   justify-content: center;
   align-items: center;
   font-size: 30px;
-  font-family: "digital";
   padding: 5px 10px;  
   color: rgba(24, 24, 24, 0.671);
   background: rgb(248, 248, 248);
