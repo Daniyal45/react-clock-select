@@ -7,6 +7,8 @@
 
 A simple react component to select time in 12 hour or 24 hours format
 
+##### <a href="https://react-azmat-components.web.app/#/react-clock-select" target="_blank">Click here for demo</a>
+
 <table class="center">
   <tr>
    
