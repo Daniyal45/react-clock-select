@@ -6,7 +6,7 @@
 }
 
 .rcs-digital-picker-input-container {
-  display: flex;
+  /* display: flex; */
   font-family: "digital";
 }
 
@@ -63,7 +63,9 @@
   font-size: 30px;
   padding-top: 3%;
   width: 30px;   
-  height: 24px;  
+  height: 24px;
+  line-height: 0;
+  box-sizing: unset;  
 }
 
 .rcs-am-pm-toggle{
@@ -74,8 +76,8 @@
 }
 
 .rcs-digital-time-picker-btn{
-  padding: 5px;
-  margin: 5px 0px;
+  padding: 8px;
+  margin: 0px;
   min-width: 25%;
   border-radius: 10px;
   outline: none;

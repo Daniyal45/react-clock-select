@@ -6,7 +6,7 @@ import { AnalogTime, DigitalTime } from '../components/ClockSelect/ClockSelect';
 var time_interval;
 
 export default function Test() {
-    const [ displayType, _displayType ] = useState("display");
+    const [ displayType, _displayType ] = useState("picker");
     const [ selectorPosition, _selectorPosition ] = useState("bottom");
     const [format, _format] = useState(12);
     const [size, _size] = useState(1);
